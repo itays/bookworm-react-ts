@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
 import LoginForm from '../forms/LoginForm';
-import { loginThunkAction } from '../../actions/auth';
+import { loginThunk } from '../../actions/auth';
+import { Credentials } from '../../types';
 
 type History = {
   push: (url: string) => void;
@@ -13,6 +14,10 @@ interface LoginPageProps {
 }
 
 class LoginPage extends React.Component<LoginPageProps, {}> {
+  constructor(props: LoginPageProps) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
   submit(data: any) {
     this.props.login(data).then(() => this.props.history.push('/'));
   }
@@ -26,4 +31,12 @@ class LoginPage extends React.Component<LoginPageProps, {}> {
   }
 }
 
-export default connect(null, { login: loginThunkAction })(LoginPage);
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+  return {
+    login: (credentials: Credentials) => dispatch(loginThunk(credentials))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
