@@ -35,5 +35,6 @@
     "@types/redux-thunk": "^2.1.0",
     "@types/validator": "^6.3.0",
     "redux-devtools-extension": "^2.13.2"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }

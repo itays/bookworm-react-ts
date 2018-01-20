@@ -18,8 +18,8 @@ class LoginPage extends React.Component<LoginPageProps, {}> {
     super(props);
     this.submit = this.submit.bind(this);
   }
-  submit(data: any) {
-    this.props.login(data).then(() => this.props.history.push('/'));
+  submit(data: any): Promise<any> {
+    return this.props.login(data).then(() => this.props.history.push('/'));
   }
   render() {
     return (
