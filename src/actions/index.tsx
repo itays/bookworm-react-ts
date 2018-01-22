@@ -1,4 +1,7 @@
 import { ActionTypes } from '../types';
+import { Dispatch } from 'react-redux';
+import api from '../api';
+import { Credentials } from '../types';
 export interface UserLoggedIn {
   type: ActionTypes.USER_LOGGED_IN;
   user?: any;
@@ -14,3 +17,7 @@ export const userLoggedIn = (user: any): UserLoggedIn => ({
   type: ActionTypes.USER_LOGGED_IN,
   user
 });
+
+export const signupThunk = (credentials: Credentials) => (dispatch: Dispatch<ActionTypes.USER_SIGNUP>
+) =>
+  api.user.signup(credentials).then(user => dispatch(userLoggedIn(user)));

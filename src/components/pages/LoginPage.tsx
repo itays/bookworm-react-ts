@@ -2,11 +2,7 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import LoginForm from '../forms/LoginForm';
 import { loginThunk } from '../../actions/auth';
-import { Credentials } from '../../types';
-
-type History = {
-  push: (url: string) => void;
-};
+import { Credentials, History } from '../../types';
 
 interface LoginPageProps {
   history: History;
@@ -31,12 +27,10 @@ class LoginPage extends React.Component<LoginPageProps, {}> {
   }
 }
 
-const mapStateToProps = () => ({});
-
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
     login: (credentials: Credentials) => dispatch(loginThunk(credentials))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(null, mapDispatchToProps)(LoginPage);
