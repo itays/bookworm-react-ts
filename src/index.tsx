@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
@@ -18,7 +18,7 @@ const store = createStore(
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <Route component={App} />
     </Provider>
   </BrowserRouter>,
   document.getElementById('root') as HTMLElement
