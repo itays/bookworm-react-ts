@@ -1,9 +1,15 @@
-import { StoreState, ActionTypes } from '../types';
+import { ActionTypes, UserStore } from '../types';
 import { UserAction } from '../actions';
-export default function user(state: StoreState = {}, action: UserAction) {
+const initialState = {
+  email: '',
+  token: '',
+};
+export default function user(state: UserStore = initialState, action: UserAction) {
   switch (action.type) {
     case ActionTypes.USER_LOGGED_IN:
-      return { ...state, user: action.user };
+      return action.user;
+    case ActionTypes.USER_LOGGED_OUT:
+      return {};
     default:
       return state;
   }
