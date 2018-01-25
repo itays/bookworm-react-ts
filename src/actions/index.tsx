@@ -23,5 +23,6 @@ export const userLoggedOut = () => ({
 });
 
 export const signupThunk = (credentials: Credentials) => (dispatch: Dispatch<ActionTypes.USER_SIGNUP>
-) =>
-  api.user.signup(credentials).then(user => dispatch(userLoggedIn(user)));
+) => {
+  return api.user.signup(credentials).then(user => dispatch(userLoggedIn(user)));
+};

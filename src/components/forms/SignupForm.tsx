@@ -37,7 +37,7 @@ class SignupForm extends React.Component<SignupFormProps, SignupFormState> {
   onSubmit() {
     const errors = this.validate(this.state.data);
     this.setState({ errors });
-    if (errors === undefined) {
+    if (!Object.keys(errors).length) {
       this.setState({ loading: true });
       this.props
         .submit(this.state.data)

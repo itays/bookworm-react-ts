@@ -6,7 +6,7 @@ export default {
       return axios.post('/api/auth', { credentials }).then((res: AxiosResponse) => res.data.user);
     },
     signup: (credentials: Credentials) => {
-      return axios.post('/auth/signup', { credentials }).then((res: AxiosResponse) => res.data.user);
+      return axios.post('/api/users', { user: credentials }).then((res: AxiosResponse) => res.data.user);
     }
       
   }
