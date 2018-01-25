@@ -15,6 +15,7 @@ export interface StoreState {
 export interface UserStore {
   email: string;
   token: string;
+  confirmed?: boolean;
 }
 
 export type History = {
