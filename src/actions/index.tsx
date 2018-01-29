@@ -24,5 +24,15 @@ export const userLoggedOut = () => ({
 
 export const signupThunk = (credentials: Credentials) => (dispatch: Dispatch<ActionTypes.USER_SIGNUP>
 ) => {
-  return api.user.signup(credentials).then(user => dispatch(userLoggedIn(user)));
+  return api.user.signup(credentials).then(user => {
+    sessionStorage.setItem('bookwormJWT', user.token);
+    dispatch(userLoggedIn(user));
+  });
+};
+
+export const confirmThunk = (token: string) => (dispatch: Dispatch<ActionTypes.CONFIRM_EMAIL>) => {
+  return api.user.confirm(token).then((user: UserStore) => {
+    sessionStorage.setItem('bookwormJWT', user.token);
+    dispatch(userLoggedIn(user));
+  });
 };

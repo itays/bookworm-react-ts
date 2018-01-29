@@ -23,7 +23,8 @@ if (sessionStorage.getItem('bookwormJWT')) {
   const decoded: any = JwtDecode(token);
   const user: UserStore = {
     email: decoded.email,
-    token
+    token,
+    confirmed: decoded.confirmed,
   };
   store.dispatch(userLoggedIn(user));
 }

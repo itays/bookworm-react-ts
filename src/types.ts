@@ -3,6 +3,7 @@ export enum ActionTypes {
   USER_LOGGED_IN = 'USER_LOGGED_IN',
   USER_LOGGED_OUT = 'USER_LOGGED_OUT',
   USER_SIGNUP = 'USER_SIGNUP',
+  CONFIRM_EMAIL = 'CONFIRM_EMAIL',
 }
 export interface Credentials {
   email: string;

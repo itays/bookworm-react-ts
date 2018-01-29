@@ -36,7 +36,7 @@ class SignupPage extends React.Component<SignupPageProps, any> {
 
 const mapDispatchToProps = (dispatch: Dispatch<ActionTypes.USER_SIGNUP>) => {
   return {
-    signup: (data: Credentials) => dispatch(signupThunk(data))
+    signup: (credentials: Credentials) => dispatch(signupThunk(credentials))
   };
 };
 

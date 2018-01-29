@@ -7,6 +7,9 @@ export default {
     },
     signup: (credentials: Credentials) => {
       return axios.post('/api/users', { user: credentials }).then((res: AxiosResponse) => res.data.user);
+    },
+    confirm: (token: string) => {
+      return axios.post('/api/auth/confirmation', { token }).then((res: AxiosResponse) => res.data.user);
     }
       
   }
